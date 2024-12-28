@@ -25,8 +25,11 @@ public class SecondaryController {
             Parent root = loader.load();
 
             FinalController controller = loader.getController();
-            controller.displayGuessedNumber(NumberGuesser.getGuessedNumber());
-            controller.displayRandomNumber(NumberGuesser.getSecretNumber());
+            Integer secretNumber = NumberGuesser.getSecretNumber();
+            Integer guessedNumber = NumberGuesser.getGuessedNumber();
+            controller.displayGuessedNumber(guessedNumber);
+            controller.displayRandomNumber(secretNumber);
+            controller.displayResult(secretNumber, guessedNumber);
             App.setRoot(root);
         }catch(NumberFormatException e){
             guessedText.setText("Invalid number");
